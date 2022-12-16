@@ -357,8 +357,6 @@ const movies = [
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
 
-const deleteProp = () => {};
-
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
@@ -400,23 +398,56 @@ console.log("Esercizio 14:", onlyTheYears(movies));
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
-/*const onlyInLastMillennium = (array) => {
-  return array.filter((x) => x.Year >= "2000");
+const onlyInLastMillennium = (movies) => {
+  return movies.filter((x) => x.Year >= "2000");
 };
 
-console.log("Esercizio 15:", onlyInLastMillennium());
+console.log("Esercizio 15:", onlyInLastMillennium(movies));
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+
+function sumAllTheYears(movies) {
+  const sommaAnni = movies.reduce(
+    (accumulatore, elemento) => accumulatore + Number(elemento.Year),
+    0
+  );
+  return sommaAnni;
+}
+
+console.log(
+  "Esercizio 16: La somma di tutti gli anni è:",
+  sumAllTheYears(movies)
+);
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
+const searchByTitle = (stringa, movies) => {
+  return movies.filter((movies) =>
+    movies.Title.toLowerCase().includes(stringa.toLowerCase())
+  );
+};
+
+console.log("Esercizio 17:", searchByTitle("Lord", movies));
+
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+function searchAndDivide(movies, stringa) {
+  const match = movies.filter((movie) =>
+    movie.Title.toLowerCase().includes(stringa.toLowerCase())
+  );
+  const unmatch = movies.filter(
+    (movie) => !movie.Title.toLowerCase().includes(stringa.toLowerCase())
+  );
+  return match, unmatch;
+}
+
+console.log("Esercizio 18:", searchAndDivide(movies, "Avengers"));
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
@@ -428,9 +459,17 @@ console.log("Esercizio 15:", onlyInLastMillennium());
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+const container = () => {
+  return document.getElementById("container");
+};
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+const td = () => {
+  return document.getElementsByName("td");
+};
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
