@@ -453,6 +453,13 @@ console.log("Esercizio 18:", searchAndDivide(movies, "Avengers"));
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
+const removeIndex = (movies, filmDaEliminare) => {
+  filmDaEliminare = filmDaEliminare - 1;
+  movies.splice(filmDaEliminare, 1);
+  return movies;
+};
+console.log("Esercizo 19:", removeIndex(movies, 2));
+
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
@@ -468,28 +475,57 @@ const container = () => {
 */
 
 const td = () => {
-  return document.getElementsByName("td");
+  return document.getElementsByTagName("td");
 };
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+const stampaTD = () => {
+  let stampaConsole = getElementsByTagName("td");
+  for (i = 0; i < stampaConsole.length; i++) {
+    return console.log(stampaTD());
+  }
+};
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+const cambiaBGLink = () => {
+  let cambiaBG = document.querySelectorAll("a");
+  for (i = 0; i < cambiaBG.length; i++)
+    return (cambiaBG.style.background = "red");
+};
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const aggiungiLista = () => {
+  let lista = document.getElementsByTagName("li");
+  myList.remove(lista);
+};
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const rimuoviLista = () => {
+  let lista = document.createElement("li");
+  lista.innerHTML = "Ciao";
+  document.getElementById("myList").appendChild(lista);
+};
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const aggiungiClasse = () => {
+  let classe = document.querySelectorAll("tr");
+  return classe.classList.add("test");
+};
 
 // [EXTRA] JS Avanzato
 
